@@ -1,31 +1,21 @@
 import express from 'express'
-import {products}  from '../db/products.js'
+
+import * as productController from '../controllers/product.controller.js' 
 const router = express.Router()
 
-router.get('/api/products', (req, res) =>{
-    res.json({
-    ok: true,
-    data: products
-  });
-})
+//route Allproducts  
+router.get('/api/products', productController.getAllProducts);
 
-router.get('/api/products/:id', (req, res) =>{
- const productId = Number(req.params.id)
- const product = products.find((p) => p.id === productId)
+// route products for ID
+router.get('/api/products/:id', productController.getAllProductsById)
 
- if(!product){
-    return res.status(404).json({
-      ok: false,
-      error: {
-        message: "Product not found"
-      }
+// create product
+router.post('/api/products', productController.createProduct)
 
-    });
- }
- res.json({
-    ok: true,
-    data: product
-  });
-})
+// update product
+router.put('/api/products/:id', productController.updateProduct)
 
+// delete product
+
+router.delete('/api/products', productController.deleteProduct)
 export default router

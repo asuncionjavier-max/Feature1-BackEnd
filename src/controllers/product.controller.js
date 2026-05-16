@@ -22,7 +22,7 @@ export const getAllProductsById = (req,res) =>{
 }
 export const createProduct = (req, res) =>{
     const {name,price} = req.body
-    if(!name || price === undefined || price > 0) return  res.status(404).json({
+    if(!name || price === undefined || price < 0) return  res.status(404).json({
         ok: false,
         error: { message: "Error al crear el producto" }})
 
