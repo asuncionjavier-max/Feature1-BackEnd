@@ -16,3 +16,19 @@ export const CreateProduct = (productData) =>{
     } 
     products.push(newProduct)
 }
+
+export const updateProduct = (id, data) =>{
+    const indexProduct = products.findIndex(p => p.id === Number(id))
+    if(indexProduct === -1) return null
+    products[indexProduct] = {...products[indexProduct], ...data}
+    return products[indexProduct]
+}
+
+export const deleteProduct = (id) =>{
+     const indexProduct = products.findIndex(p => p.id === Number(id))
+    if(indexProduct === -1) return null
+
+    const deleteProduct = products[indexProduct];
+    products.splice(indexProduct, 1)
+    return deleteProduct
+}
