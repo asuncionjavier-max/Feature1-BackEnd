@@ -1,4 +1,4 @@
-import { products } from "../db/products"
+import { products } from "../db/products.js"
 
 // Show products
 export const getProducts = () =>{
@@ -6,7 +6,8 @@ export const getProducts = () =>{
 }
 // Filter products for ID
 export const getProductsById = (id) =>{
-    return product.find((p) => p.id === Number(products.id))
+    const foundProduct = products.find((p) => p.id === Number(id))
+    return foundProduct
 }
 // Create Product
 export const createProduct = (productData) =>{
@@ -16,6 +17,7 @@ export const createProduct = (productData) =>{
         price: productData.price
     } 
     products.push(newProduct)
+    return newProduct
 }
 // Update product
 export const updateProduct = (id, data) =>{

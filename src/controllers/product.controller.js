@@ -27,7 +27,7 @@ export const createProduct = (req, res) =>{
         error: { message: "Error al crear el producto" }})
 
     const newProduct = productService.createProduct({name,price})
-    return status(201).json({
+    return res.status(201).json({
         ok:true,
         data: newProduct,
     })

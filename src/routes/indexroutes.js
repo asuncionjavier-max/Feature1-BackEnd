@@ -1,4 +1,5 @@
 import express from 'express'
+import productsroutes from '../routes/productroutes.js'
 const router = express.Router()
 
 router.get('/api/health', (req,res) =>{
@@ -9,4 +10,5 @@ router.get('/api/health', (req,res) =>{
   })
 })
 
+router.use(productsroutes)
 export default router
