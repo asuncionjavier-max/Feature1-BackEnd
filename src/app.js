@@ -9,7 +9,7 @@ app.use(productroutes)
 app.use((req, res) =>{
     res.status(404).json
     ({ ok:false, 
-        error:{message:"Error interno" 
+        error:{message:"Ruta no encontrada" 
     }})
 })
 

@@ -3,7 +3,7 @@ const router = express.Router()
 
 router.get('/health', (req,res) =>{
     res.json({ 
-    status: "ok",
+    data: {status: "healthy"},
     uptime: process.uptime(),
     timestamp: new Date(), 
   })
